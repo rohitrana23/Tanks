@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://btqct46hqmbve"]
+
+[ext_resource type="Script" path="res://Tank.gd" id="1_d12rg"]
+[ext_resource type="Texture2D" uid="uid://bntqtwpyu7ktc" path="res://assets/PNG/Default size/tank_huge.png" id="2_wtmb1"]
+[ext_resource type="PackedScene" uid="uid://cwslk71hy1lb4" path="res://healthbar.tscn" id="3_47muy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnal5"]
+size = Vector2(89.5155, 89.5833)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(362, 203)
+scale = Vector2(0.592077, 0.48)
+script = ExtResource("1_d12rg")
+
+[node name="healthbar" parent="." instance=ExtResource("3_47muy")]
+top_level = true
+anchors_preset = -1
+anchor_right = 0.156
+anchor_bottom = 0.042
+offset_left = 325.0
+offset_top = 154.0
+offset_right = 168.288
+offset_bottom = 134.784
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2.88911, -1.484)
+rotation = -1.57003
+scale = Vector2(1.80559, 1.74404)
+texture = ExtResource("2_wtmb1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.53345, -3.12497)
+shape = SubResource("RectangleShape2D_xnal5")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(94.5823, -2.08333)
