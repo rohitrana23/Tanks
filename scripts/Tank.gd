@@ -12,7 +12,7 @@ var health = 100
 var bullet_speed = 200
 @onready var gun = $Marker2D
 
-@onready var bullet = preload("res://bullet.tscn")
+@onready var bullet = preload("res://scenes/bullet.tscn")
 func _physics_process(delta):
 	# Check for 'ui_accept' (space) button input
 	if Input.is_action_just_pressed("z"):

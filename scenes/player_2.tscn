@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyo5wh3dwcvvs"]
 
-[ext_resource type="Script" path="res://Player2.gd" id="1_m45m0"]
+[ext_resource type="Script" path="res://scripts/Player2.gd" id="1_m45m0"]
 [ext_resource type="Texture2D" uid="uid://0t6qcotnnxx6" path="res://assets/PNG/Default size/tank_dark.png" id="2_hkqh3"]
-[ext_resource type="PackedScene" uid="uid://cwslk71hy1lb4" path="res://healthbar.tscn" id="3_axhr4"]
+[ext_resource type="PackedScene" uid="uid://cwslk71hy1lb4" path="res://scenes/healthbar.tscn" id="3_axhr4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnal5"]
 size = Vector2(89.5155, 89.5833)

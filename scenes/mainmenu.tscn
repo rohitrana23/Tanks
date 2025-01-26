@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0n5b446etkbe"]
+
+[ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_ho7gp"]
+[ext_resource type="FontFile" uid="uid://dimd48u5h0mby" path="res://assets/Bread Summer.otf" id="1_phpnb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7yuly"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_epsoa"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ho7gp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.997
+offset_right = 4.0
+offset_bottom = -0.0560303
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="start" type="Button" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.544974, 0.544974, 0.544974, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_phpnb")
+theme_override_font_sizes/font_size = 58
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7yuly")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7yuly")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7yuly")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7yuly")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7yuly")
+text = "START GAME"
+
+[node name="quit" type="Button" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.489622, 0.489622, 0.489622, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_phpnb")
+theme_override_font_sizes/font_size = 58
+theme_override_styles/normal = SubResource("StyleBoxEmpty_epsoa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_epsoa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_epsoa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_epsoa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_epsoa")
+text = "QUIT GAME"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 4.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

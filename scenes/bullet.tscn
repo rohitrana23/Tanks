@@ -1,20 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqd42f3r1j22j"]
 
-[ext_resource type="Script" path="res://bullet.gd" id="1_d88bq"]
-[ext_resource type="Texture2D" uid="uid://chgtvo8dkrhof" path="res://assets/PNG/Default size/bulletDark1_outline.png" id="2_u18nx"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_x7eil"]
+[ext_resource type="Texture2D" uid="uid://chgtvo8dkrhof" path="res://assets/PNG/Default size/bulletDark1_outline.png" id="2_k5vds"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0iyja"]
 size = Vector2(4.71055, 2)
 
 [node name="bullet" type="Area2D"]
 scale = Vector2(4, -4.348)
-script = ExtResource("1_d88bq")
+script = ExtResource("1_x7eil")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 rotation = 1.5708
 scale = Vector2(0.25, 0.357143)
-texture = ExtResource("2_u18nx")
+texture = ExtResource("2_k5vds")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.129056, 0)
