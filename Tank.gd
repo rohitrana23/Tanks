@@ -15,11 +15,11 @@ var bullet_speed = 200
 @onready var bullet = preload("res://bullet.tscn")
 func _physics_process(delta):
 	# Check for 'ui_accept' (space) button input
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("z"):
 		fire()
 		is_rotating = false  # Stop rotation
 		velocity = Vector2.ZERO  # Ensure the tank stays stationary
-	elif Input.is_action_pressed("ui_accept"):
+	elif Input.is_action_pressed("z"):
 		is_rotating = false  # Stop rotation
 		move_forward(delta)  # Move forward without rotation
 	else:

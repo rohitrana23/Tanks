@@ -15,11 +15,11 @@ script = ExtResource("1_d12rg")
 [node name="healthbar" parent="." instance=ExtResource("3_47muy")]
 top_level = true
 anchors_preset = -1
-anchor_right = 0.156
+anchor_right = 0.171
 anchor_bottom = 0.042
 offset_left = 325.0
 offset_top = 154.0
-offset_right = 168.288
+offset_right = 151.008
 offset_bottom = 134.784
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

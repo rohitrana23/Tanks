@@ -9,21 +9,20 @@ size = Vector2(89.5155, 89.5833)
 
 [node name="Player2" type="CharacterBody2D"]
 top_level = true
-position = Vector2(-2, -4)
+position = Vector2(159, 63)
 scale = Vector2(0.950556, 0.670401)
 script = ExtResource("1_m45m0")
 
 [node name="healthbar" parent="." instance=ExtResource("3_axhr4")]
 top_level = true
 anchors_preset = -1
-anchor_left = 0.00691398
-anchor_top = -0.0598798
-anchor_right = 0.251
-anchor_bottom = 0.031
-offset_left = -59.9649
-offset_top = -57.1979
-offset_right = -311.152
-offset_bottom = -108.088
+anchor_left = 0.008
+anchor_right = 0.092
+anchor_bottom = 0.023
+offset_left = 96.784
+offset_top = -51.0
+offset_right = 30.016
+offset_bottom = -57.904
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
