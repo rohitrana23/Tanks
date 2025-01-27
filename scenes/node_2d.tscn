@@ -1,12 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://48lq8lkajfwm"]
+[gd_scene load_steps=19 format=3 uid="uid://48lq8lkajfwm"]
 
-[ext_resource type="PackedScene" uid="uid://dr3sg2jip668d" path="res://scenes/end_game.tscn" id="1_f0ugc"]
+[ext_resource type="Script" path="res://scripts/interface.gd" id="1_k6vxc"]
+[ext_resource type="FontFile" uid="uid://dimd48u5h0mby" path="res://assets/Bread Summer.otf" id="2_2sgic"]
 [ext_resource type="Texture2D" uid="uid://bbyfgsm6rk4li" path="res://assets/Tilesheet/terrainTiles_default.png" id="3_hrcnx"]
 [ext_resource type="PackedScene" uid="uid://btqct46hqmbve" path="res://scenes/player.tscn" id="4_11it2"]
 [ext_resource type="Texture2D" uid="uid://dp8wpv8qfa0tj" path="res://assets/Tilesheet/terrainTiles_retina.png" id="4_rjxkp"]
 [ext_resource type="Texture2D" uid="uid://ccbqpf1jq1jaw" path="res://assets/Spritesheet/onlyObjects_default.png" id="5_1r3jy"]
 [ext_resource type="PackedScene" uid="uid://dyo5wh3dwcvvs" path="res://scenes/player_2.tscn" id="6_dbtxi"]
 [ext_resource type="Texture2D" uid="uid://yiat3frx88a2" path="res://assets/PNG/Default size/crateMetal.png" id="6_sy5xk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23qm0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k4bap"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vjm7s"]
 texture = ExtResource("3_hrcnx")
@@ -3805,15 +3810,77 @@ size = Vector2(54, 702)
 
 [node name="MainScene" type="Node2D"]
 
-[node name="EndGame" parent="." instance=ExtResource("1_f0ugc")]
-visible = false
-top_level = true
-z_index = 4
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="interface" type="CanvasLayer" parent="."]
+script = ExtResource("1_k6vxc")
+
+[node name="ui" type="Control" parent="interface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="score" type="Label" parent="interface/ui"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.477
+anchor_right = 0.609
+anchor_bottom = 0.153
+offset_left = -44.504
+offset_right = -50.5681
+offset_bottom = -0.144005
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "0 : 0"
+
+[node name="CenterContainer" type="CenterContainer" parent="interface/ui"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="interface/ui/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="interface/ui/CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="interface/ui/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Winner" type="Label" parent="interface/ui/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/font = ExtResource("2_2sgic")
+theme_override_font_sizes/font_size = 58
+text = "Player 1 Wins"
+
+[node name="Main Menu" type="Button" parent="interface/ui/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.662452, 0.662452, 0.662452, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_2sgic")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxEmpty_23qm0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_23qm0")
+text = "Main Menu"
+
+[node name="Replay" type="Button" parent="interface/ui/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.687215, 0.687215, 0.687215, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_2sgic")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k4bap")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k4bap")
+text = "Replay"
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(362, 203)
@@ -4092,22 +4159,25 @@ scale = Vector2(1.89286, 1.85714)
 shape = SubResource("RectangleShape2D_ds8qq")
 
 [node name="Player2" parent="." instance=ExtResource("6_dbtxi")]
-position = Vector2(1063, 365)
+position = Vector2(1063, 360)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="world border" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="world border"]
 position = Vector2(586.5, -25.5)
 shape = SubResource("RectangleShape2D_0xpa6")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="world border"]
 position = Vector2(-19.5, 322)
 shape = SubResource("RectangleShape2D_pld3i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="world border"]
 position = Vector2(580, 684)
 shape = SubResource("RectangleShape2D_0xpa6")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="world border"]
 position = Vector2(1186, 304)
 shape = SubResource("RectangleShape2D_igk4g")
+
+[connection signal="pressed" from="interface/ui/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Main Menu" to="interface" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="interface/ui/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Replay" to="interface" method="_on_replay_pressed"]

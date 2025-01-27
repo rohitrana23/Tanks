@@ -31,17 +31,17 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 475.0
-offset_top = 56.0
-offset_right = -467.0
-offset_bottom = -456.0
+offset_left = 459.0
+offset_top = 48.0
+offset_right = -447.0
+offset_bottom = -454.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(4.42803e-06, 0.599776, 0.493872, 1)
 theme_override_colors/font_shadow_color = Color(1, 0, 0.152941, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_fonts/normal_font = ExtResource("1_phpnb")
-theme_override_font_sizes/normal_font_size = 140
+theme_override_font_sizes/normal_font_size = 156
 text = "TANKS"
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
@@ -107,12 +107,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1011.0
-offset_top = 3.0
-offset_right = -5.0
-offset_bottom = -619.0
+offset_left = 605.0
+offset_top = 156.0
+offset_right = -426.0
+offset_bottom = -471.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_phpnb")
-theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/normal_font_size = 22
 text = "made by Rohit Rana"
 
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/start" to="." method="_on_start_pressed"]

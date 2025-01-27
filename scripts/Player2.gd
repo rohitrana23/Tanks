@@ -13,14 +13,15 @@ var bullet_speed = 200
 
 @onready var bullet = preload("res://scenes/bullet.tscn")
 @onready var opponent = $"../Player"
+@onready var interface = $"../interface"
 
 func _physics_process(delta):
 	# Check for 'ui_accept' (space) button input
-	if Input.is_action_just_pressed("r"):
+	if Input.is_action_just_pressed("r") and interface.score2 < 4 and interface.score1<4:
 		fire()
 		is_rotating = false  # Stop rotation
 		velocity = Vector2.ZERO  # Ensure the tank stays stationary
-	elif Input.is_action_pressed("r"):
+	elif Input.is_action_pressed("r") and interface.score2 < 4 and interface.score1<4:
 		is_rotating = false  # Stop rotation
 		move_forward(delta)  # Move forward without rotation
 	else:
@@ -32,10 +33,11 @@ func _physics_process(delta):
 	if is_rotating:
 		rotate_tank(delta)
 	if health <= 0:
-		self.position = Vector2(137,340)
+		opponent.position = Vector2(137,340)
 		health = 100
-		opponent.position = Vector2(1063,365)
+		self.position = Vector2(1063,365)
 		opponent.health = 100
+		interface.score1+=1
 
 	# Apply movement
 	move_and_slide()
