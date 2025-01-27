@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0n5b446etkbe"]
+[gd_scene load_steps=6 format=3 uid="uid://d0n5b446etkbe"]
 
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_ho7gp"]
 [ext_resource type="FontFile" uid="uid://dimd48u5h0mby" path="res://assets/Bread Summer.otf" id="1_phpnb"]
+[ext_resource type="Texture2D" uid="uid://dwig6yet1teuf" path="res://assets/menu bg.jpg" id="3_344hj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7yuly"]
 
@@ -24,6 +25,24 @@ anchor_right = 1.0
 anchor_bottom = 0.997
 offset_right = 4.0
 offset_bottom = -0.0560303
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 475.0
+offset_top = 56.0
+offset_right = -467.0
+offset_bottom = -456.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(4.42803e-06, 0.599776, 0.493872, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0.152941, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_fonts/normal_font = ExtResource("1_phpnb")
+theme_override_font_sizes/normal_font_size = 140
+text = "TANKS"
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -76,12 +95,25 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -2.0
-offset_right = 4.0
-offset_bottom = -2.0
+offset_left = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_344hj")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1011.0
+offset_top = 3.0
+offset_right = -5.0
+offset_bottom = -619.0
+theme_override_fonts/normal_font = ExtResource("1_phpnb")
+theme_override_font_sizes/normal_font_size = 26
+text = "made by Rohit Rana"
 
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

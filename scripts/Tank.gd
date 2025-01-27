@@ -13,6 +13,7 @@ var bullet_speed = 200
 @onready var gun = $Marker2D
 
 @onready var bullet = preload("res://scenes/bullet.tscn")
+@onready var opponent = $"../Player2"
 func _physics_process(delta):
 	# Check for 'ui_accept' (space) button input
 	if Input.is_action_just_pressed("z"):
@@ -30,6 +31,11 @@ func _physics_process(delta):
 	# Apply rotation if allowed
 	if is_rotating:
 		rotate_tank(delta)
+	if health <= 0:
+		self.position = Vector2(137,340)
+		health = 100
+		opponent.position = Vector2(1063,365)
+		opponent.health = 100
 
 	# Apply movement
 	move_and_slide()
